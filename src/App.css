@@ -1,0 +1,143 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.toolbar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--code-bg, #f4f3ec);
+  border-bottom: 1px solid var(--border, #e5e4e7);
+}
+
+.toolbar-btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 1px solid var(--border, #e5e4e7);
+  border-radius: 6px;
+  background: var(--bg, #fff);
+  color: var(--text, #6b6375);
+  cursor: pointer;
+}
+
+.toolbar-btn:hover:not(:disabled) {
+  background: var(--accent-bg, rgba(170, 59, 255, 0.1));
+  border-color: var(--accent-border, rgba(170, 59, 255, 0.5));
+}
+
+.toolbar-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.toolbar-btn[aria-pressed="true"] {
+  background: var(--accent-bg, rgba(170, 59, 255, 0.1));
+  border-color: var(--accent, #aa3bff);
+  color: var(--accent, #aa3bff);
+}
+
+.toolbar-btn-label {
+  cursor: pointer;
+  margin: 0;
+}
+
+.toolbar-btn-label input[type="file"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.toolbar-zoom {
+  margin-left: 8px;
+  font-size: 14px;
+  color: var(--text, #6b6375);
+}
+
+.toolbar-toggle {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 10;
+  padding: 8px 12px;
+  font-size: 20px;
+  line-height: 1;
+  border: 1px solid var(--border, #e5e4e7);
+  border-radius: 6px;
+  background: var(--bg, #fff);
+  color: var(--text, #6b6375);
+  cursor: pointer;
+  box-shadow: var(--shadow, rgba(0, 0, 0, 0.1) 0 2px 8px);
+}
+
+.toolbar-toggle:hover {
+  background: var(--accent-bg, rgba(170, 59, 255, 0.1));
+  border-color: var(--accent-border, rgba(170, 59, 255, 0.5));
+}
+
+.score-area-wrap {
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+}
+
+.score-area-scaled {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 1428px; /* fallback; overridden by inline minHeight when PDF sets exportContentHeight */
+}
+
+.staff-layer,
+.sheet-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  pointer-events: none;
+}
+
+.staff-layer svg,
+.staff-layer canvas,
+.sheet-layer svg,
+.sheet-layer canvas,
+.sheet-layer img {
+  pointer-events: none;
+}
+
+.sheet-layer > div {
+  pointer-events: none;
+}
+
+.drawing-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+.drawing-layer canvas,
+.drawing-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.toolbar-swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+  vertical-align: middle;
+  border: 1px solid var(--border, #e5e4e7);
+  border-radius: 2px;
+}
